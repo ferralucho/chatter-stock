@@ -1,6 +1,7 @@
 package app
 
 import (
+	"github.com/ferralucho/chatter-stock/src/controllers/chat"
 	"github.com/ferralucho/chatter-stock/src/controllers/ping"
 	"github.com/ferralucho/chatter-stock/src/controllers/users"
 )
@@ -14,4 +15,5 @@ func mapUrls() {
 	router.DELETE("/users/:user_id", users.Delete)
 	router.POST("/users/login", users.Login)
 	router.GET("/internal/users/search", users.Search)
+	router.POST("/bot/commands/send", chat.SendCommand)
 }
