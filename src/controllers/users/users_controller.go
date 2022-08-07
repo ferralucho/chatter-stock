@@ -5,9 +5,9 @@ import (
 	"strconv"
 
 	"github.com/ferralucho/chatter-stock/src/domain/users"
+	errors "github.com/ferralucho/chatter-stock/src/rest_errors"
 	"github.com/ferralucho/chatter-stock/src/services"
-	errors "github.com/ferralucho/chatter-stock/srcrest_errors"
-	"github.com/ferralucho/store_oauth-go/oauth"
+	//"github.com/ferralucho/store_oauth-go/oauth"
 	"github.com/gin-gonic/gin"
 )
 
@@ -60,7 +60,7 @@ func Get(c *gin.Context) {
 		}
 		c.JSON(http.StatusOK, user.Marshall(oauth.IsPublic(c.Request)))
 	*/
-	c.JSON(http.StatusOK, user.Marshall(c.Request))
+	c.JSON(http.StatusOK, user.Marshall(true))
 }
 
 func Update(c *gin.Context) {

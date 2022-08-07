@@ -1,7 +1,6 @@
 package services
 
 import (
-	"chatter-stock/src/rest_errors"
 	"github.com/ferralucho/chatter-stock/src/domain/users"
 	"github.com/ferralucho/chatter-stock/src/rest_errors"
 	"github.com/ferralucho/chatter-stock/src/utils/crypto_utils"

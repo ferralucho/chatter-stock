@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"strings"
 
-	errors "github.com/ferralucho/store_utils-go/rest_errors"
+	errors "github.com/ferralucho/chatter-stock/src/rest_errors"
 
-	"github.com/ferralucho/store_users-api/src/datasources/logger"
-	"github.com/ferralucho/store_users-api/src/datasources/mysql/users_db"
-	"github.com/ferralucho/store_users-api/src/utils/date_utils"
-	"github.com/ferralucho/store_users-api/src/utils/mysql_utils"
+	"github.com/ferralucho/chatter-stock/src/datasources/logger"
+	"github.com/ferralucho/chatter-stock/src/datasources/mysql/users_db"
+	"github.com/ferralucho/chatter-stock/src/utils/date_utils"
+	"github.com/ferralucho/chatter-stock/src/utils/mysql_utils"
 )
 
 const (

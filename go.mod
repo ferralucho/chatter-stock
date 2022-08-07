@@ -1,8 +1,9 @@
-module chatter-stock
+module github.com/ferralucho/chatter-stock
 
 go 1.16
 
 require (
+	github.com/ferralucho/store_oauth-go v0.0.0-20201004010204-038bee53dc73 // indirect
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/mercadolibre/golang-restclient v0.0.0-20170701022150-51958130a0a0 // indirect
