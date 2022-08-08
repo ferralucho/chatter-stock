@@ -8,6 +8,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strconv"
 )
 
 var (
@@ -39,11 +40,46 @@ func (r *stocksRepository) GetStock(command bots.Command) (*stocks.StockData, re
 	}
 	var stock stocks.StockData
 
+	open, high, low, close, volume := parseStockResults(err, results)
+
 	stock = stocks.StockData{
-		Symbol: results[0][0],
+		Symbol: results[1][0],
+		Date:   results[1][1],
+		Time:   results[1][2],
+		Open:   float32(open),
+		High:   float32(high),
+		Low:    float32(low),
+		Close:  float32(close),
+		Volume: int32(volume),
 	}
 
 	return &stock, nil
+}
+
+func parseStockResults(err error, results [][]string) (float64, float64, float64, float64, float64) {
+	open, err := strconv.ParseFloat(results[1][3], 32)
+	if err != nil {
+		open = 0.0
+	}
+
+	high, err := strconv.ParseFloat(results[1][4], 32)
+	if err != nil {
+		open = 0.0
+	}
+	low, err := strconv.ParseFloat(results[1][5], 32)
+	if err != nil {
+		open = 0.0
+	}
+	close, err := strconv.ParseFloat(results[1][6], 32)
+	if err != nil {
+		open = 0.0
+	}
+
+	volume, err := strconv.ParseFloat(results[1][7], 32)
+	if err != nil {
+		open = 0.0
+	}
+	return open, high, low, close, volume
 }
 
 func ReadCSVFromHttpRequest(resp *http.Response) ([][]string, error) {
